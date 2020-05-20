@@ -17,7 +17,11 @@ if (process.env.RUN_ENV == 'server-dev') {
 
 // state 通用定义 0 可用 1 禁止
 
-let db = mongoose.connect(db_url, { useNewUrlParser: true, connectTimeoutMS: 120000 });
+let db = mongoose.connect(db_url, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  connectTimeoutMS: 120000,
+});
 //用户
 const userSchema = new Schema({
   name: { type: String, index: true },
